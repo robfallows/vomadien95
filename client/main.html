@@ -1,0 +1,33 @@
+<head>
+  <title>example</title>
+</head>
+
+<body>
+  {{> home}}
+</body>
+
+<template name="home">
+  {{> Template.dynamic template=main}}
+</template>
+
+<template name="showCategories">
+  <select name="categoryMain" class="form-control">
+    <option value="" disabled selected>Choose a Category</option>
+    {{#each categories}}
+      <option value="{{name}}">{{name}}</option>
+    {{/each}}
+  </select>
+  <ul>
+  {{> subCategory category=selectedCategory}}
+  </ul>
+</template>
+
+<template name="subCategory">
+  {{#each category}}
+    <li>{{name}}</li>
+  {{/each}}
+</template>
+
+<template name="information">
+  <a href="/">Go back</a>
+</template>
