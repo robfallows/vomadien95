@@ -22,13 +22,13 @@ Template.showCategories.helpers({
 });
 
 Template.showCategories.events({
-  'change select'(event, template) {
-    template.category.set(event.currentTarget.value);
+  'change select'(event, instance) {
+    instance.category.set(event.currentTarget.value);
   },
 });
 
 Template.subCategory.events({
-  'click li'(event, template) {
+  'click li'(event) {
     FlowRouter.go('information', {
       name: encodeURIComponent(event.currentTarget.innerText),
     });
